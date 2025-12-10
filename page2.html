@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Our cute memories 🧸</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page2">
+  <div class="card">
+    <h2>Different versions of my Simmi 🌸</h2>
+    <div class="divider"></div>
+
+    <p>
+      Har photo me ek alag Simmi hai –  
+      kabhi naughty, kabhi emotional, kabhi over-cute.  
+      Aur sach bolu toh, har version pe main equally fida hoon. 💕
+    </p>
+
+    <!-- 6-photo flip card grid -->
+    <div class="photo-grid photo-grid-6">
+      <!-- Card 1 -->
+      <div class="photo-card" onclick="flipCard(this)" data-full="images/gf1.jpeg">
+        <div class="photo-inner">
+          <div class="photo-front">
+            <img src="images/gf1.jpeg" alt="Simmi photo 1">
+          </div>
+          <div class="photo-back">
+            <p>
+              Ye wali Simmi = meri pure saal ki favourite notification. 📲💗
+            </p>
+            <button type="button" class="btn-mini"
+              onclick="openLightboxFromBack(event, 'images/gf1.jpeg')">
+              View big 🫶
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="photo-card" onclick="flipCard(this)" data-full="images/gf2.jpeg">
+        <div class="photo-inner">
+          <div class="photo-front">
+            <img src="images/gf2.jpeg" alt="Simmi photo 2">
+          </div>
+          <div class="photo-back">
+            <p>
+              Jab tum aise haste ho na, uss time duniya me koi problem nahi lagti. 🌍✨
+            </p>
+            <button type="button" class="btn-mini"
+              onclick="openLightboxFromBack(event, 'images/gf2.jpeg')">
+              View big 🫶
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="photo-card" onclick="flipCard(this)" data-full="images/gf3.jpeg">
+        <div class="photo-inner">
+          <div class="photo-front">
+            <img src="images/gf3.jpeg" alt="Simmi photo 3">
+          </div>
+          <div class="photo-back">
+            <p>
+              Thodi si drama queen, lekin meri favourite one. 😌👑
+            </p>
+            <button type="button" class="btn-mini"
+              onclick="openLightboxFromBack(event, 'images/gf3.jpeg')">
+              View big 🫶
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="photo-card" onclick="flipCard(this)" data-full="images/gf4.jpeg">
+        <div class="photo-inner">
+          <div class="photo-front">
+            <img src="images/gf4.jpeg" alt="Simmi photo 4">
+          </div>
+          <div class="photo-back">
+            <p>
+              Ye wali Simmi ko dekhke bas ek hi thought: “Kaise mil gayi mujhe?” 🥺💞
+            </p>
+            <button type="button" class="btn-mini"
+              onclick="openLightboxFromBack(event, 'images/gf4.jpeg')">
+              View big 🫶
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="photo-card" onclick="flipCard(this)" data-full="images/gf5.jpeg">
+        <div class="photo-inner">
+          <div class="photo-front">
+            <img src="images/gf5.jpeg" alt="Simmi photo 5">
+          </div>
+          <div class="photo-back">
+            <p>
+              Ye calm Simmi = mera safe place, mera comfort zone. ☁️🤍
+            </p>
+            <button type="button" class="btn-mini"
+              onclick="openLightboxFromBack(event, 'images/gf5.jpeg')">
+              View big 🫶
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="photo-card" onclick="flipCard(this)" data-full="images/gf6.jpeg">
+        <div class="photo-inner">
+          <div class="photo-front">
+            <img src="images/gf6.jpeg" alt="Simmi photo 6">
+          </div>
+          <div class="photo-back">
+            <p>
+              Aur ye wala version? Bas itna: “Please kabhi jaana mat.” 🌙💫
+            </p>
+            <button type="button" class="btn-mini"
+              onclick="openLightboxFromBack(event, 'images/gf6.jpeg')">
+              View big 🫶
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p style="margin-top:14px; font-size:0.9rem;">
+      (P.S. Agar tum yahan tak aa gayi ho,  
+      toh haan, tum waise hi special ho jaise main sochta hoon. 👀💗)
+    </p>
+
+    <!-- Navigation buttons -->
+    <div class="btn-row nav-row">
+      <a href="index.html">
+        <button class="btn btn-secondary">⬅ Back</button>
+      </a>
+      <a href="page3.html">
+        <button class="btn btn-primary">Next ➜</button>
+      </a>
+    </div>
+  </div>
+
+  <!-- Full-screen lightbox -->
+  <div id="lightbox" class="lightbox">
+    <button class="close-lightbox" onclick="closeLightbox()">✕</button>
+    <img id="lightbox-img" src="" alt="Big view of Simmi">
+  </div>
+
+  <script>
+    function flipCard(card) {
+      card.classList.toggle("flipped");
+    }
+
+    function openLightboxFromBack(event, src) {
+      event.stopPropagation(); // flip na ho, sirf big photo
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+      lightboxImg.src = src;
+      lightbox.classList.add("open");
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById("lightbox");
+      lightbox.classList.remove("open");
+    }
+
+    // Lightbox ke black area pe click se bhi close ho
+    document.getElementById("lightbox").addEventListener("click", function (e) {
+      if (e.target === this) {
+        closeLightbox();
+      }
+    });
+  </script>
+</body>
+</html>

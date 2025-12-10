@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For my Simmi 💞</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page4">
+  <div class="card">
+    <h2>One last thing, Simmi… 💭</h2>
+    <div class="divider"></div>
+
+    <!-- Yahan tum uski favourite photo daal sakte ho -->
+    <img src="images/gf_main.jpeg" alt="Simmi's favorite photo" class="big-photo">
+
+    <p>
+      Shayad main hamesha perfect nahi hoon,  
+      hamesha sahi words nahi milte…  
+      lekin ek cheez fix hai: <b>tum</b>.  
+    </p>
+
+    <p>
+      Tum ho meri comfort, mera safe place,  
+      mera favourite notification, mera favourite insan. 💗  
+      Aaj tumhara birthday hai,  
+      par mujhe lagta hai asli gift toh mujhe mila tha  
+      jab tum meri life me aayi thi, Simmi.
+    </p>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="showMessage()">Click for a tiny secret 🎁</button>
+    </div>
+
+    <p id="secret" class="hidden final-message">
+      Future ka exact scene mujhe nahi pata…  
+      bas itna pata hai ki main future me ye dekhna chahta hoon:  
+      <b>Simmi + main + bohot saari aisi hi birthdays, saath me. 🎂💞</b><br><br>
+      Aur haan, ek line specially:  
+      <b>tum sirf cute nahi ho, tum meri “home” ho.</b> 🏡💖
+    </p>
+
+    <div class="btn-row" style="margin-top:10px;">
+      <a href="index.html">
+        <button class="btn btn-secondary">Back to start ⬅</button>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    function showMessage() {
+      const secret = document.getElementById("secret");
+      secret.classList.toggle("hidden");
+
+      if (!secret.classList.contains("hidden")) {
+        secret.style.opacity = "0";
+        secret.style.transition = "opacity 0.8s ease";
+        setTimeout(() => {
+          secret.style.opacity = "1";
+        }, 10);
+        alert("This secret is only for you, Simmi. 💖");
+      }
+    }
+  </script>
+</body>
+</html>
